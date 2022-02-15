@@ -1,4 +1,4 @@
-package com.niksatyr.media2.local.di
+package com.niksatyr.media2.di
 
 import com.niksatyr.media2.PlaybackManager
 import com.niksatyr.media2.local.LocalPlayerClient

@@ -1,4 +1,4 @@
-package com.niksatyr.media2.local.di
+package com.niksatyr.media2.di
 
 import android.app.Service
 import android.content.Context

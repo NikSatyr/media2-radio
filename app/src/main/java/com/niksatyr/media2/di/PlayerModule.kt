@@ -1,11 +1,9 @@
-package com.niksatyr.media2.local.di
+package com.niksatyr.media2.di
 
 import android.content.Context
 import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.analytics.AnalyticsCollector
 import com.google.android.exoplayer2.audio.AudioAttributes
 import com.google.android.exoplayer2.source.DefaultMediaSourceFactory
-import com.google.android.exoplayer2.source.MediaSourceFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
