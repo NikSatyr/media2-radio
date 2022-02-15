@@ -3,7 +3,6 @@ package com.niksatyr.media2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.niksatyr.media2.radio.R
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -18,7 +17,7 @@ internal class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val button: Button = findViewById(R.id.button_play)
-        button.setOnClickListener { playbackManager.playDemo() }
+        button.setOnClickListener { playbackManager.playRadio() }
     }
 
 }

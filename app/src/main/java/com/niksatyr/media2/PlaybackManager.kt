@@ -10,21 +10,11 @@ internal class PlaybackManager(private val localPlayerClient: LocalPlayerClient)
 
     private val player: Player? get() = localPlayerClient.player
 
-    fun playDemo() {
-        val metadata = MediaMetadata.Builder()
-            .setTitle("Sample Track")
-            .setArtist("Sample Artist")
-            .setMediaUri("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3".toUri())
-            .build()
-
-        val mediaItem = MediaItem.Builder()
-            .setMediaId("1")
-            .setUri("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
-            .setMediaMetadata(metadata)
-            .build()
+    fun playRadio() {
+        val radioItem = MediaItem.fromUri("http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/sbr_low/ak/bbc_radio_one.m3u8")
 
         player?.apply {
-            setMediaItem(mediaItem)
+            setMediaItem(radioItem)
             prepare()
             play()
         }

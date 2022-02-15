@@ -2,8 +2,11 @@ package com.niksatyr.media2.di
 
 import android.content.Context
 import com.google.android.exoplayer2.*
+import com.google.android.exoplayer2.analytics.AnalyticsCollector
 import com.google.android.exoplayer2.audio.AudioAttributes
 import com.google.android.exoplayer2.source.DefaultMediaSourceFactory
+import com.google.android.exoplayer2.util.Clock
+import com.niksatyr.media2.RadioMetadataUpdater
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,11 +23,13 @@ internal object PlayerModule {
     fun providePlayer(
         @ApplicationContext context: Context,
         audioAttributes: AudioAttributes,
+        analyticsCollector: AnalyticsCollector
     ): Player {
         return ExoPlayer.Builder(context, DefaultRenderersFactory(context), DefaultMediaSourceFactory(context))
             .setHandleAudioBecomingNoisy(true)
             .setAudioAttributes(audioAttributes, true)
             .setWakeMode(C.WAKE_MODE_NETWORK)
+            .setAnalyticsCollector(analyticsCollector)
             .build()
     }
 
@@ -36,6 +41,20 @@ internal object PlayerModule {
             .setContentType(C.CONTENT_TYPE_MUSIC)
             .setUsage(C.USAGE_MEDIA)
             .build()
+    }
+
+    @Provides
+    @ServiceScoped
+    fun provideAnalyticsCollector(radioMetadataUpdater: RadioMetadataUpdater): AnalyticsCollector {
+        return AnalyticsCollector(Clock.DEFAULT).also {
+            it.addListener(radioMetadataUpdater)
+        }
+    }
+
+    @Provides
+    @ServiceScoped
+    fun provideRadioMetadataUpdater(): RadioMetadataUpdater {
+        return RadioMetadataUpdater()
     }
 
 }
