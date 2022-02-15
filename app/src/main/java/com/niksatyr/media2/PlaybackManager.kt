@@ -1,8 +1,6 @@
 package com.niksatyr.media2
 
-import androidx.core.net.toUri
 import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.MediaMetadata
 import com.google.android.exoplayer2.Player
 import com.niksatyr.media2.local.LocalPlayerClient
 
