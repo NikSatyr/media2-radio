@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.niksatyr.media2.radio">
+    package="com.niksatyr.media2">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,7 +13,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Media2">
+        android:theme="@style/Theme.Media2"
+        android:usesCleartextTraffic="true">
 
         <activity
             android:name=".MainActivity"
@@ -26,8 +27,8 @@
 
         <service
             android:name=".local.LocalPlayerService"
-            android:foregroundServiceType="mediaPlayback"
-            android:exported="false">
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback">
             <intent-filter>
                 <action android:name="androidx.media2.session.MediaLibraryService" />
                 <action android:name="android.media.browse.MediaBrowserService" />

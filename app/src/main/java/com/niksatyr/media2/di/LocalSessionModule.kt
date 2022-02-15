@@ -7,10 +7,11 @@ import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.ext.media2.SessionPlayerConnector
 import com.google.android.exoplayer2.ui.PlayerNotificationManager
 import com.google.android.exoplayer2.util.NotificationUtil
+import com.niksatyr.media2.R
 import com.niksatyr.media2.local.DefaultMediaSessionCallback
 import com.niksatyr.media2.local.LocalPlayerService
+import com.niksatyr.media2.local.notification.DefaultMediaDescriptionAdapter
 import com.niksatyr.media2.local.notification.ForegroundAwareNotificationListener
-import com.niksatyr.media2.radio.R
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
