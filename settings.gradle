@@ -1,0 +1,6 @@
+rootProject.name = "Media2"
+include ':app'
+
+gradle.ext.exoplayerRoot = "${rootDir}/ExoPlayer"
+gradle.ext.exoplayerModulePrefix = '~exo-'
+apply from: new File(gradle.ext.exoplayerRoot, 'core_settings.gradle')
